@@ -1,0 +1,15 @@
+<p style='color:green'><%= notice %></p>
+
+ <div class="aspect-w-1 aspect-h-1">
+                    <% if @recipe.image_url.present? %>
+                    <%= image_tag @recipe.image_url, class: "object-cover w-full h-full" %>
+                    <% end %>
+    </div>
+    <h2><%= @recipe.name%></h2>
+    <div><%= @recipe.desc%></div><br>
+    <div>
+        <%= link_to "Back to recipes", recipes_path %> |
+        <%= link_to "Edit this recipe", edit_recipe_path %> 
+        <%= button_to "Delete", @recipe, method: :delete, data: {turbo_confirm: "Are you sure?"} %>
+    </div>
+

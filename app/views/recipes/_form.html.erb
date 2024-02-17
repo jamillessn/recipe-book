@@ -1,0 +1,41 @@
+<%= form_with model: recipe do |form| %>
+  <% if form.object.errors.any? %>
+    <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+        <p class="font-bold"><%= pluralize(recipe.errors.count, "error") %>  prohibited this post from being saved:</p>
+      <ul>
+        <% @recipe.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <div>
+      <p>
+        <%= form.label :name %> <br>
+        <%= form.text_field :name, class: "w-full" %>
+      </p>
+    </div>
+
+    <div>
+      <p>
+        <%= form.label 'Image URL' %><br>
+        <%= form.text_field :image_url, class: "w-full" %>
+      </p>
+    </div>
+
+    <div>
+      <p>
+        <%= form.label 'Description' %> <br>
+        <%= form.text_area :desc, class: "w-full" %>
+      </p>
+    </div>
+    <p>
+    <%= form.button "Submit", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" %>
+  </p>
+  </div>
+
+  
+  </div>
+<% end %>

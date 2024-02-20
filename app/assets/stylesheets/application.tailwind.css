@@ -11,3 +11,12 @@
 }
 
 */
+
+.banner {
+  background-image: url('<%= asset_path("background.png") %>');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-position: 50%;
+}
+

@@ -1,11 +1,11 @@
+<section class='mx-auto prose bg-yellow-50'>
 <h1>Edit recipe information:</h1>
-<%= render "form", recipe: @recipe %>
+<%= render "form", recipe: @recipe%>
 <br>
-
-<div>
-    <%= link_to "Show this recipe", @recipe %>
-    <%= link_to "Back to recipe list", recipes_path %>
-    </div>
-
-<%= button_to "Delete this recipe", @recipe, method: :delete, data: {turbo_confirm: "Are you sure?"} %>
-
+<div class='flex-grow items-center gap-4'>
+                <div class='flex flex-wrap md:flex-nowrap items-center gap-4 mb-6'>
+                <%= link_to "Back to recipes", recipes_path %> |
+                <%= link_to "Edit this recipe", edit_recipe_path %> |
+                <%= button_to "Delete", @recipe, method: :delete,class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded", data: {turbo_confirm: "Are you sure?"} %>
+</div>
+</section>

@@ -1,15 +1,33 @@
 <p style='color:green'><%= notice %></p>
 
- <div class="aspect-w-1 aspect-h-1">
-                    <% if @recipe.image_url.present? %>
-                    <%= image_tag @recipe.image_url, class: "object-cover w-full h-full" %>
-                    <% end %>
+    <div class = 'bg-white border border-gray-100 rounded-lg p-4 mx-auto prose'>
+        <div class='flex flex-col md:items-center gap-4 relative p-5'>
+            
+            <div class=' items-center gap-4'>
+                <div class='shrink-0 flex-justify-center' >
+                <div class='w-full h-full'>
+                            <% if @recipe.image_url.present? %>
+                            <%= image_tag @recipe.image_url, class: "max-w-50" %>
+                            <% end %>
+                 </div>
+            </div>
+
+                   <div class='flex items-center mb-4'><p class='text-default-800 text-2xl font-semibold line-clamp-1'><%= @recipe.name%></p></div>
+
+                    <p class='text-base text-default-600 max-w-2xl mb-6'><%= @recipe.desc%></p><br>
+
+                    
+                    <div class='flex flex-wrap md:flex-nowrap items-center gap-4 mb-6'>
+                        <%= link_to "Back to recipes", recipes_path %> |
+                        <%= link_to "Edit this recipe", edit_recipe_path %> |
+                        <%= button_to "Delete", @recipe, method: :delete,class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded", data: {turbo_confirm: "Are you sure?"} %>
+                    </div>
+            </div>
+
+            
+        </div>
     </div>
-    <h2><%= @recipe.name%></h2>
-    <div><%= @recipe.desc%></div><br>
-    <div>
-        <%= link_to "Back to recipes", recipes_path %> |
-        <%= link_to "Edit this recipe", edit_recipe_path %> 
-        <%= button_to "Delete", @recipe, method: :delete, data: {turbo_confirm: "Are you sure?"} %>
-    </div>
+    
+
+
 

@@ -11,9 +11,24 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="prose mx-auto">
-    <main class="container mx-auto mt-28 px-5">
+  <body class='bg-yellow-50 my-auto' style="padding-top: 8%;">
+    <header class='bg-white fixed z-50 top-0 left-0 w-full shadow-md transition duration-500'>
+    <nav class='flex items-center max-w-screen-xl mx-auto px-6 py-3'>
+      <div class='flex flex-grow'>
+        <%= link_to recipes_path do %>
+          <%= image_tag "recipebooklogo.png", class: "w-36 cursor-pointer" %>
+        <% end %>
+      </div>
+        <div class='flex items-center justify-end space-x-6'>
+          <%= link_to 'Add a new recipe', new_recipe_path %>
+        </div>
+    </nav>
+    </header>
+
+    <main>
       <%= yield %>
     </main>
+  
   </body>
+   
 </html>
